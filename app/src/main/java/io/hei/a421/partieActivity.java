@@ -31,7 +31,7 @@ public class partieActivity extends AppCompatActivity {
         imageView2 = (ImageView) findViewById(R.id.imageView2);
         imageView3 = (ImageView) findViewById(R.id.imageView3);
         nomJoueurActuel = (TextView) findViewById(R.id.nomJoueurActuel);
-
+//
         listeJoueurs.add("Juliette");
         listeJoueurs.add("Eliott");
         listeJoueurs.add("Le gros Virg");
