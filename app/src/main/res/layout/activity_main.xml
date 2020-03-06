@@ -19,7 +19,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/Bundesstraße_421_number" />
+        app:srcCompat="@drawable/coucou" />
 
     <LinearLayout
         android:id="@+id/menu"
@@ -54,7 +54,6 @@
         android:layout_marginStart="30dp"
         android:layout_marginTop="7dp"
         android:layout_marginEnd="31dp"
-        android:background="@color/colorPrimary"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,18 +61,22 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
         <ListView
+            android:id="@+id/teamView"
             android:layout_width="match_parent"
             android:layout_height="190dp" />
 
         <EditText
+            android:id="@+id/edit"
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="50dp" />
 
         <Button
+            android:id="@+id/ajouter"
             android:layout_width="200dp"
             android:layout_height="50dp"
-            android:text="@string/ajouter" />
+            android:text="@string/ajouter"
+            android:onClick="addPlayerToTeam"/>
     </LinearLayout>
 
 

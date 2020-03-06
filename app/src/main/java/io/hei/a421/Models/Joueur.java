@@ -14,6 +14,11 @@ public class Joueur {
         this.pseudo=pseudo;
     }
 
+    public Joueur(int _idJoueur, String _pseudo){
+        this.idJoueur=_idJoueur;
+        this.pseudo=_pseudo;
+    }
+
     public int getIdJoueur(){ return idJoueur;}
     public String getPseudo(){ return pseudo;}
     public int getNbJetons(){ return nbJetons;}
