@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">421</string>
+    <string name="titre">Jeu entre copains</string>
+    <string name="jouer">Jouer</string>
+    <string name="regles">Règles</string>
+    <string name="ajouter">Ajouter</string>
 </resources>
