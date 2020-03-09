@@ -6,8 +6,11 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -55,20 +58,44 @@ public class partieActivity extends AppCompatActivity {
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int value1 = randomDiceValue();
-                int value2 = randomDiceValue();
-                int value3 = randomDiceValue();
+                final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
+                final Animation anim2 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
+                final Animation anim3 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
 
-                int res1 = getResources().getIdentifier("dice_" + value1, "drawable", "com.example.rollthedice");
-                int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "com.example.rollthedice");
-                int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "com.example.rollthedice");
+                final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
 
-                imageView1.setImageResource(res1);
-                imageView2.setImageResource(res2);
-                imageView3.setImageResource(res3);
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        int value = randomDiceValue();
+                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
+
+                        if (animation == anim1) {
+                            imageView1.setImageResource(res);
+                        } else if (animation == anim2) {
+                            imageView2.setImageResource(res);
+                        } else if (animation == anim3) {
+                            imageView3.setImageResource(res);
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                };
+                anim1.setAnimationListener(animationListener);
+                anim2.setAnimationListener(animationListener);
+                anim3.setAnimationListener(animationListener);
+
+                imageView1.startAnimation(anim1);
+                imageView2.startAnimation(anim2);
+                imageView3.startAnimation(anim3);
             }
-        });*/
-
+        });
+*/
         finDuTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,6 +130,10 @@ public class partieActivity extends AppCompatActivity {
         }
 
         public void onSensorChanged(SensorEvent sensorEvent) {
+            final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
+            final Animation anim2 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
+            final Animation anim3 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
+
             // Que faire en cas d'évènements sur le capteur ?
             float x = sensorEvent.values[0];
             float y = sensorEvent.values[1];
@@ -114,17 +145,37 @@ public class partieActivity extends AppCompatActivity {
             float acceleration = (float) Math.sqrt(x*x + y*y + z*z) - SensorManager.GRAVITY_EARTH;
 
             if (acceleration > SHAKE_THRESHOLD) {
-                int value1 = randomDiceValue();
-                int value2 = randomDiceValue();
-                int value3 = randomDiceValue();
+                final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
 
-                int res1 = getResources().getIdentifier("dice_" + value1, "drawable", "io.hei.a421");
-                int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "io.hei.a421");
-                int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "io.hei.a421");
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        int value = randomDiceValue();
+                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
 
-                imageView1.setImageResource(res1);
-                imageView2.setImageResource(res2);
-                imageView3.setImageResource(res3);
+                        if (animation == anim1) {
+                            imageView1.setImageResource(res);
+                        } else if (animation == anim2) {
+                            imageView2.setImageResource(res);
+                        } else if (animation == anim3) {
+                            imageView3.setImageResource(res);
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                };
+                anim1.setAnimationListener(animationListener);
+                anim2.setAnimationListener(animationListener);
+                anim3.setAnimationListener(animationListener);
+
+                imageView1.startAnimation(anim1);
+                imageView2.startAnimation(anim2);
+                imageView3.startAnimation(anim3);
 
             }
 
