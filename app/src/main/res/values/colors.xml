@@ -7,4 +7,9 @@
     <color name="colorGreenVelvet">#175732</color>
     <color name="colorGreenSombre">#124628</color>
     <color name="colorGreenPlusSombre">#18391e</color>
+    <color name="whitee">#ffffffff</color>
+    <color name="black">#00000000</color>
+    <color name="whitegreen">#CCFFCC</color>
+    <color name="whiteblue">#CCFFFF</color>
+    <color name="jone">#FFFF00</color>
 </resources>

@@ -1,7 +1,9 @@
 package io.hei.a421;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -43,7 +46,24 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addPlayerToTeam(v);
+                if(editText.getText().length()!=0){
+                    addPlayerToTeam(v);
+                }
+                else {
+                    Log.d("coucou2","ca rentre la2");
+                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                    alertDialogBuilder.setMessage("Vous devez rentrer un pseudo !");
+                    alertDialogBuilder.setPositiveButton("Compris !", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(getApplicationContext(),"mkay bro",
+                                    Toast.LENGTH_SHORT).show();
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
             }
         });
         buttonJouer.setOnClickListener(new View.OnClickListener() {

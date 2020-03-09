@@ -68,7 +68,6 @@ public class partieActivity extends AppCompatActivity {
 
 
 //Distrubuer les 21 jetons
-/*
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -109,7 +108,6 @@ public class partieActivity extends AppCompatActivity {
                 imageView3.startAnimation(anim3);
             }
         });
-*/
         finDuTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
