@@ -118,8 +118,8 @@ public class partieActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 nbclick= 0;
-                relancer.setVisibility(View.VISIBLE);
                 moveit = true;
+                relancer.setVisibility(View.VISIBLE);
                 onResume();
                 rangJoueur ++;
                 if (rangJoueur == listeJoueurs.size()){
@@ -178,7 +178,6 @@ public class partieActivity extends AppCompatActivity {
             System.out.println("y=" + y);
             System.out.println("z=" + z);
             float acceleration = (float) Math.sqrt(x*x + y*y + z*z) - SensorManager.GRAVITY_EARTH;
-
             shakeoupasshake();
 
             if (acceleration > SHAKE_THRESHOLD) {
@@ -230,6 +229,7 @@ public class partieActivity extends AppCompatActivity {
 
     public void shakeoupasshake() {
         if (moveit == false) {
+
             onPause();
         }
     }
