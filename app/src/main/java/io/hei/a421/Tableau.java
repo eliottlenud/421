@@ -2,7 +2,7 @@ package io.hei.a421;
 
 public class Tableau{
 
-    //Tableau a 3 colonnes : Classement, Combinaison, NbdeJetonsADonner
+    //Tableau à 3 colonnes : Classement, Combinaison, NbdeJetonsADonner
 
     int tableau[][]=
             {
