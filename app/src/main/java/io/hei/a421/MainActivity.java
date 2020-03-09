@@ -18,7 +18,7 @@ import io.hei.a421.Models.Joueur;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> partie;
-    ArrayList<Joueur> partieList = new ArrayList<>();
+    public ArrayList<Joueur> partieList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     ListView listView;
     EditText editText;
@@ -38,13 +38,22 @@ public class MainActivity extends AppCompatActivity {
         buttonRegles = findViewById(R.id.regles);
 
         partie = new ArrayList<>();
-        arrayAdapter = new ArrayAdapter<>(this, R.layout.player_view_layout,partie);
+        arrayAdapter = new ArrayAdapter<>(this, R.layout.player_box, R.id.pseudo, partie);
         listView.setAdapter(arrayAdapter);
+        buttonAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addPlayerToTeam(v);
+            }
+        });
         buttonJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 createTeam();
-                Intent intent=new Intent(MainActivity.this, partieActivity.class);
+                Intent intent = new Intent(MainActivity.this, partieActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("partieList", partieList);
+                intent.putExtras(bundle);
                 startActivity(intent);
             }
         });

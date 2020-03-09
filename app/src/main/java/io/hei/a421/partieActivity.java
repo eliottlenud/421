@@ -21,16 +21,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Random;
+import io.hei.a421.Models.Joueur;
 
 public class partieActivity extends AppCompatActivity {
 
     public static final Random RANDOM = new Random();
     public ImageView imageView1, imageView2, imageView3; //Les 3 images des dès
-    public ArrayList<String> listeJoueurs = new ArrayList<>(); //La liste des joueurs actifs
     public TextView nomJoueurActuel; //Nom du joueur qui joue
     public int rangJoueur; //Pour parcourir la liste des joueurs
     private SensorManager mSensorManager = null;
     private Sensor mAccelerometer = null;
+    public ArrayList<Joueur> partieList;
     private static int SHAKE_THRESHOLD = 10;
     public boolean moveit = true;
     public int nbclick = 0;
@@ -52,16 +53,14 @@ public class partieActivity extends AppCompatActivity {
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre
 
-        listeJoueurs.add("Juliette");
-        listeJoueurs.add("Eliott");
-        listeJoueurs.add("Le plus beau Virg");
-        listeJoueurs.add("Asmax");
-        nomJoueurActuel.setText(listeJoueurs.get(0));
+        Bundle bundleObject = getIntent().getExtras();
+        partieList = (ArrayList<Joueur>) bundleObject.getSerializable("partieList");
+        nomJoueurActuel.setText(partieList.get(0).getPseudo());
         rangJoueur=0;
 
     //Definir le nombre de joueur
         int nbJoueur=0;
-        nbJoueur=listeJoueurs.size();
+        nbJoueur=partieList.size();
 
      //Initialiser le nombre de jeton au debut
         /*  public int DistributionJetons(int idJoueur){
@@ -122,14 +121,13 @@ public class partieActivity extends AppCompatActivity {
                 relancer.setVisibility(View.VISIBLE);
                 onResume();
                 rangJoueur ++;
-                if (rangJoueur == listeJoueurs.size()){
+                if (rangJoueur == partieList.size()){
                     rangJoueur=0;
                 }
-                nomJoueurActuel.setText(listeJoueurs.get(rangJoueur));
+                nomJoueurActuel.setText(partieList.get(rangJoueur).getPseudo());
             }
 
         });
-
         relancer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
