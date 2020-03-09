@@ -68,4 +68,5 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Main",""+partieList.get(i).toString());
         }
     }
+
 }
