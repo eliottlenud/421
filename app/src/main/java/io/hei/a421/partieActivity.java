@@ -34,7 +34,7 @@ public class partieActivity extends AppCompatActivity {
 //
         listeJoueurs.add("Juliette");
         listeJoueurs.add("Eliott");
-        listeJoueurs.add("Le gros Virg");
+        listeJoueurs.add("Le plus beau Virg");
         listeJoueurs.add("Asmax");
         nomJoueurActuel.setText(listeJoueurs.get(0));
         rangJoueur=0;

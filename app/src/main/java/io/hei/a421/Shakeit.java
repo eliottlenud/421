@@ -55,7 +55,7 @@ public class Shakeit extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // sensorManager permet d'accéder aux capteurs
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre
+        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre0
     }
 
     @Override
