@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // public void pourJouer(View v) {
+        //    Intent intent=new Intent(this,button1.class);
+        //    startActivity(intent); }
+
+
         listView = findViewById(R.id.teamView);
         editText = findViewById(R.id.edit);
         buttonAdd = findViewById(R.id.ajouter);
@@ -50,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         buttonRegles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.regles_layout);
+                setContentView(R.layout.reglesjeu_layout);
             }
         });
     }
