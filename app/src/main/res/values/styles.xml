@@ -8,4 +8,17 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style id="mybutton" name="mybuttonstyle" parent="@android:style/Widget.Button">
+        <item name="android:textColor">#396E3C</item>
+        <item name="android:shadowColor">#0C0C0C</item>
+        <item name="android:shadowDx">4</item>
+        <item name="android:shadowDy">-1</item>
+        <item name="android:shadowRadius">0.2</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="text">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>
