@@ -8,10 +8,10 @@ public class Joueur {
     private String pseudo;
     private int nbJetons;
 
-    public Joueur(int idJoueur,String pseudo,int nbJetons){
-        this.idJoueur=idJoueur;
-        this.nbJetons=nbJetons;
-        this.pseudo=pseudo;
+    public Joueur(int _idJoueur,String _pseudo,int _nbJetons){
+        this.idJoueur=_idJoueur;
+        this.nbJetons=_nbJetons;
+        this.pseudo=_pseudo;
     }
 
     public Joueur(int _idJoueur, String _pseudo){

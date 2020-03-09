@@ -7,9 +7,9 @@ public class Partie {
     private int nbJoueurs;
     private int idPremierJoueur;
 
-    public Partie(int nbJoueurs,int idPremierJoueur){
-        this.nbJoueurs=nbJoueurs;
-        this.idPremierJoueur=idPremierJoueur;
+    public Partie(int _nbJoueurs,int _idPremierJoueur){
+        this.nbJoueurs=_nbJoueurs;
+        this.idPremierJoueur=_idPremierJoueur;
     }
 
     public int getNbJoueurs(){ return nbJoueurs;}
