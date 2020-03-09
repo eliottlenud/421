@@ -59,7 +59,19 @@ public class partieActivity extends AppCompatActivity {
         nomJoueurActuel.setText(listeJoueurs.get(0));
         rangJoueur=0;
 
+    //Definir le nombre de joueur
+        int nbJoueur=0;
+        nbJoueur=listeJoueurs.size();
 
+     //Initialiser le nombre de jeton au debut
+        /*  public int DistributionJetons(int idJoueur){
+            int nbJetons;
+            nbJetons=21/nbJoueur;
+            return nbJetons;
+        }
+*/
+
+//Distrubuer les 21 jetons
 /*
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
