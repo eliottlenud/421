@@ -51,9 +51,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 createTeam();
                 Intent intent = new Intent(MainActivity.this, partieActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("partieList", partieList);
-                intent.putExtras(bundle);
+                intent.putParcelableArrayListExtra("partieList", partieList);
                 startActivity(intent);
             }
         });

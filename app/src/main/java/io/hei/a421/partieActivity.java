@@ -42,33 +42,30 @@ public class partieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_party);
-        LinearLayout rangee = (LinearLayout) findViewById(R.id.rangee);
-        Button finDuTour = (Button) findViewById((R.id.finDuTour));
-        final Button relancer = (Button) findViewById((R.id.relancer));
-        imageView1 = (ImageView) findViewById(R.id.imageView1);
-        imageView2 = (ImageView) findViewById(R.id.imageView2);
-        imageView3 = (ImageView) findViewById(R.id.imageView3);
-        nomJoueurActuel = (TextView) findViewById(R.id.nomJoueurActuel);
+        LinearLayout rangee =  findViewById(R.id.rangee);
+        Button finDuTour =  findViewById((R.id.finDuTour));
+        final Button relancer =  findViewById((R.id.relancer));
+        imageView1 =  findViewById(R.id.imageView1);
+        imageView2 =  findViewById(R.id.imageView2);
+        imageView3 =  findViewById(R.id.imageView3);
+        nomJoueurActuel =  findViewById(R.id.nomJoueurActuel);
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre
 
-        Bundle bundleObject = getIntent().getExtras();
-        partieList = (ArrayList<Joueur>) bundleObject.getSerializable("partieList");
+        Intent intent = getIntent();
+        partieList = intent.getParcelableArrayListExtra("partieList");
         nomJoueurActuel.setText(partieList.get(0).getPseudo());
         rangJoueur=0;
 
-    //Definir le nombre de joueur
-        int nbJoueur=0;
-        nbJoueur=partieList.size();
+        //Definir le nombre de joueur
+        int nbJoueur=partieList.size();
 
-     //Initialiser le nombre de jeton au debut
-        /*  public int DistributionJetons(int idJoueur){
-            int nbJetons;
-            nbJetons=21/nbJoueur;
-            return nbJetons;
-        }
-*/
+        //Initialiser le nombre de jeton au debut
+        int nbJetons;
+        nbJetons=21/nbJoueur;
+
+
 
 //Distrubuer les 21 jetons
 /*
@@ -226,7 +223,7 @@ public class partieActivity extends AppCompatActivity {
     }
 
     public void shakeoupasshake() {
-        if (moveit == false) {
+        if (!moveit) {
 
             onPause();
         }
