@@ -20,42 +20,48 @@
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Pour jouer au 421, il vous faut : "
-            android:theme="@style/mybuttonstyle"/>
+            android:theme="@style/mybuttonstyle"
+            android:id="@+id/button1"/>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Commencer une partie de 421"
-            android:theme="@style/mybuttonstyle"/>
+            android:theme="@style/mybuttonstyle"
+            android:id="@+id/button2"/>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Ordre et valeur des combinaisons"
-            android:theme="@style/mybuttonstyle"/>
+            android:theme="@style/mybuttonstyle"
+            android:id="@+id/button3"/>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Comment jouer au 421"
-            android:theme="@style/mybuttonstyle"/>
+            android:theme="@style/mybuttonstyle"
+            android:id="@+id/button4"/>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Valeur des combinaisons en jetons"
-            android:theme="@style/mybuttonstyle"/>
+            android:theme="@style/mybuttonstyle"
+            android:id="@+id/button5"/>
 
         <Button
             android:layout_width="300dp"
             android:layout_height="150dp"
             android:layout_marginTop="40dp"
             android:text="Comment gagner au 421"
-            android:theme="@style/mybuttonstyle"/>
+            android:theme="@style/mybuttonstyle"
+            android:id="@+id/button6"/>
 
     </LinearLayout>
 

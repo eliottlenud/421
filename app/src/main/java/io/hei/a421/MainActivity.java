@@ -30,10 +30,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // public void pourJouer(View v) {
-        //    Intent intent=new Intent(this,button1.class);
-        //    startActivity(intent); }
-
 
         listView = findViewById(R.id.teamView);
         editText = findViewById(R.id.edit);
