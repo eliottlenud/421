@@ -14,7 +14,6 @@ public class menuRegles extends AppCompatActivity {
         super.onCreate(savedInstantiateState);
         setContentView(R.layout.reglesjeu_layout);
 
-
     button1 = findViewById(R.id.button1);
     button2 = findViewById(R.id.button2);
     button3= findViewById(R.id.button3);
