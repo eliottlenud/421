@@ -9,11 +9,11 @@ public class Tour {
     private int nbJoueurs;
     private int idPremierJoueur;
 
-    public Tour(int scoreGagnant,int nbLances,int nbJoueurs, int idPremierJoueur){
-        this.scoreGagnant=scoreGagnant;
-        this.nbLances=nbLances;
-        this.nbJoueurs=nbJoueurs;
-        this.idPremierJoueur=idPremierJoueur;
+    public Tour(int _scoreGagnant,int _nbLances,int _nbJoueurs, int _idPremierJoueur){
+        this.scoreGagnant=_scoreGagnant;
+        this.nbLances=_nbLances;
+        this.nbJoueurs=_nbJoueurs;
+        this.idPremierJoueur=_idPremierJoueur;
     }
 
     public int getScoreGagnant(){ return scoreGagnant;}
