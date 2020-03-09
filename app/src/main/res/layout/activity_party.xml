@@ -68,7 +68,17 @@
             android:layout_centerHorizontal="true"
             android:text="Fin du tour"
             android:textSize="15sp" />
+
     </LinearLayout>
+
+    <Button
+        android:id="@+id/relancer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Relancer" />
 
 
 </RelativeLayout>
