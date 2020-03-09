@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tapis">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:text="Pour jouer au 421, il vous faut"
+            android:theme="@style/mybuttonstyle"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:text="Commencer une partie de 421"
+            android:theme="@style/mybuttonstyle"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:text="Ordre et valeur des combinaisons"
+            android:theme="@style/mybuttonstyle"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:text="Comment jouer au 421"
+            android:theme="@style/mybuttonstyle"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:text="Valeur des combinaisons en jetons"
+            android:theme="@style/mybuttonstyle"/>
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="150dp"
+            android:layout_marginTop="40dp"
+            android:text="Comment gagner au 421"
+            android:theme="@style/mybuttonstyle"/>
+
+    </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
