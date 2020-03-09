@@ -14,6 +14,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <activity android:name=".partieActivity"></activity>
+        <activity android:name=".Shakeit"></activity>
         <activity android:name=".MainActivity">
 
             <intent-filter>
