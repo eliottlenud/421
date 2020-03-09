@@ -23,4 +23,6 @@ public class Joueur {
     public String getPseudo(){ return pseudo;}
     public int getNbJetons(){ return nbJetons;}
 
+    public String toString(){return "Ce joueur a pour id : "+idJoueur+ " et pour pseudo : "+pseudo;}
+
 }

@@ -2,6 +2,7 @@ package io.hei.a421;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,10 +18,11 @@ import io.hei.a421.Models.Joueur;
 public class MainActivity extends AppCompatActivity {
 
     ArrayList<String> partie;
+    ArrayList<Joueur> partieList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     ListView listView;
     EditText editText;
-    Button buttonAdd;
+    Button buttonAdd, buttonJouer, buttonRegles;
     int i = 0;
 
     @Override
@@ -31,16 +33,39 @@ public class MainActivity extends AppCompatActivity {
         listView = findViewById(R.id.teamView);
         editText = findViewById(R.id.edit);
         buttonAdd = findViewById(R.id.ajouter);
+        buttonJouer = findViewById(R.id.jouer);
+        buttonRegles = findViewById(R.id.regles);
 
         partie = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this, R.layout.player_view_layout,partie);
         listView.setAdapter(arrayAdapter);
-
+        buttonJouer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                createTeam();
+                Intent intent=new Intent(MainActivity.this, partieActivity.class);
+                startActivity(intent);
+            }
+        });
+        buttonRegles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.regles_layout);
+            }
+        });
     }
 
     public void addPlayerToTeam(View v){
         partie.add(editText.getText().toString());
         arrayAdapter.notifyDataSetChanged();
         editText.setText("");
+    }
+
+    public void createTeam(){
+        for(int i=0;i<partie.size();i++){
+            Joueur jtemp = new Joueur(i, partie.get(i));
+            partieList.add(jtemp);
+            Log.d("Main",""+partieList.get(i).toString());
+        }
     }
 }
