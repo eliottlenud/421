@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        partie = new ArrayList<>();
+
+        partie.add("Asma");
+        partie.add("Juliette");
+        partie.add("Paul");
+        partie.add("Hugues");
+        partie.add("Virgile");
+        partie.add("Eliott");
 
         listView = findViewById(R.id.teamView);
 
@@ -45,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         buttonRegles = findViewById(R.id.regles);
         buttonReset = findViewById(R.id.reset);
 
-        partie = new ArrayList<>();
+
         arrayAdapter = new ArrayAdapter<>(this, R.layout.player_box, R.id.pseudo, partie);
         TextView pseudo = findViewById(R.id.pseudo);
         listView.setAdapter(arrayAdapter);
