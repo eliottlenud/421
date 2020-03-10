@@ -54,7 +54,7 @@ public class partieActivity extends AppCompatActivity {
         nomJoueurActuel =  findViewById(R.id.nomJoueurActuel);
         numberofjetons = findViewById(R.id.numberofjetons);
 
-        //sonDe = MediaPlayer.create(this, R.raw.son);
+        sonDe = MediaPlayer.create(this, R.raw.son);
 
         //Sensor
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
