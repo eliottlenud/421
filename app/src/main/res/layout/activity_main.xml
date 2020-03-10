@@ -91,7 +91,9 @@
             android:textColor="@color/whitee"
             android:gravity="center"
             android:textSize="20dp"/>
-
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/ajouter"
             android:layout_width="200dp"
@@ -101,6 +103,14 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:textSize="20dp"
             />
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset"
+            android:textSize="20dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+        </LinearLayout>
     </LinearLayout>
 
 

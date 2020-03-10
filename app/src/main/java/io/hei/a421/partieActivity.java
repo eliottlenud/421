@@ -52,41 +52,36 @@ public class partieActivity extends AppCompatActivity {
         imageView2 =  findViewById(R.id.imageView2);
         imageView3 =  findViewById(R.id.imageView3);
         nomJoueurActuel =  findViewById(R.id.nomJoueurActuel);
+        numberofjetons = findViewById(R.id.numberofjetons);
 
-        sonDe = MediaPlayer.create(this, R.raw.son);
+        //sonDe = MediaPlayer.create(this, R.raw.son);
 
+        //Sensor
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre
 
-        Intent intent = getIntent();
-        partieList = intent.getParcelableArrayListExtra("partieList");
-        nomJoueurActuel.setText(partieList.get(0).getPseudo());
-        rangJoueur=0;
-
-        //Definir le nombre de joueur
+        //Definir le nombre de joueur, et le nombre de jetons
         int nbJoueur=partieList.size();
-
-        //Initialiser le nombre de jeton au debut de la partie
         int nbJetons;
         nbJetons=21/nbJoueur;
-
         //Distribuer le nombre de jeton au debut de la partie
         for (int i=0; i<=nbJoueur; i++){
             partieList.get(i).setNbJetons(nbJetons);
         }
+        //Récupération de la partieList
+        Intent intent = getIntent();
+        partieList = intent.getParcelableArrayListExtra("partieList");
+        nomJoueurActuel.setText(partieList.get(0).getPseudo());
+        numberofjetons.setText(partieList.get(0).getNbJetons());
+        rangJoueur=0;
 
 
 
 
-        //récupérer le number of jetons
-        numberofjetons = findViewById(R.id.numberofjetons);
 
 
-
-
-//Distrubuer les 21 jetons
 /*---------TEST EN CLIQUANT SUR LES DES----------*/
-//Distribuer les 21 jetons
+//Lancer les dés
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,6 +150,7 @@ public class partieActivity extends AppCompatActivity {
                     rangJoueur=0;
                 }
                 nomJoueurActuel.setText(partieList.get(rangJoueur).getPseudo());
+                numberofjetons.setText(partieList.get(rangJoueur).getNbJetons());
             }
 
         });

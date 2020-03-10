@@ -39,4 +39,5 @@
         Comment gagner au 421 :
         Pour gagner une partie de 421, il faut être le premier joueur à ne plus avoir de jetons au terme des deux manches. Il faut savoir qu’il existe de nombreuses variantes à la règle de base. Ainsi, il est toujours possible d’ajouter des règles pour pimenter le jeu du 421.
     </string>
+    <string name="reset">Reset</string>
 </resources>

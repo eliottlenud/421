@@ -28,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
     ArrayAdapter<String> arrayAdapter;
     ListView listView;
     EditText editText;
-    Button buttonAdd, buttonJouer, buttonRegles;
+    Button buttonAdd, buttonJouer, buttonRegles, buttonReset;
     int i = 0;
+    String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd = findViewById(R.id.ajouter);
         buttonJouer = findViewById(R.id.jouer);
         buttonRegles = findViewById(R.id.regles);
+        buttonReset = findViewById(R.id.reset);
 
         partie = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this, R.layout.player_box, R.id.pseudo, partie);
@@ -85,6 +87,12 @@ public class MainActivity extends AppCompatActivity {
                 setContentView(R.layout.reglesjeu_layout);
             }
         });
+        buttonReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetTeam();
+            }
+        });
     }
 
     public void addPlayerToTeam(View v){
@@ -97,8 +105,14 @@ public class MainActivity extends AppCompatActivity {
         for(int i=0;i<partie.size();i++){
             Joueur jtemp = new Joueur(i, partie.get(i));
             partieList.add(jtemp);
-            Log.d("Main",""+partieList.get(i).toString());
+            Log.d(TAG,""+partieList.get(i).toString());
         }
+    }
+
+    public void resetTeam(){
+        int i=0;
+        partie.clear();
+        arrayAdapter.notifyDataSetChanged();
     }
 
 }
