@@ -43,6 +43,9 @@ public class Joueur implements Parcelable  {
     public int getIdJoueur(){ return idJoueur;}
     public String getPseudo(){ return pseudo;}
     public int getNbJetons(){ return nbJetons;}
+    public void setIdJoueur(int idJoueur1){this.idJoueur=idJoueur1;}
+    public void setPseudo(String pseudo1){this.pseudo=pseudo1;}
+    public void setNbJetons(int nbJetons1){this.nbJetons=nbJetons1;}
 
     public String toString(){return "Ce joueur a pour id : "+idJoueur+ " et pour pseudo : "+pseudo;}
 

@@ -64,6 +64,7 @@ public class partieActivity extends AppCompatActivity {
         //Initialiser le nombre de jeton au debut
         int nbJetons;
         nbJetons=21/nbJoueur;
+        partieList.get(0).setNbJetons(3);
 
 
 

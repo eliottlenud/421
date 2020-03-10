@@ -1,10 +1,12 @@
 package io.hei.a421;
 
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,8 +36,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         listView = findViewById(R.id.teamView);
+
         editText = findViewById(R.id.edit);
         buttonAdd = findViewById(R.id.ajouter);
         buttonJouer = findViewById(R.id.jouer);
@@ -42,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         partie = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this, R.layout.player_box, R.id.pseudo, partie);
+        TextView pseudo = findViewById(R.id.pseudo);
         listView.setAdapter(arrayAdapter);
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
