@@ -9,6 +9,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -36,6 +37,7 @@ public class partieActivity extends AppCompatActivity {
     public boolean moveit = true;
     public int nbclick = 0;
     MediaPlayer sonDe;
+    String TAG = "partieActivity";
 
 
 
@@ -59,20 +61,22 @@ public class partieActivity extends AppCompatActivity {
         //Sensor
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre
+        Intent intent = getIntent();
+        partieList = intent.getParcelableArrayListExtra("partieList");
 
         //Definir le nombre de joueur, et le nombre de jetons
         int nbJoueur=partieList.size();
         int nbJetons;
         nbJetons=21/nbJoueur;
-        //Distribuer le nombre de jeton au debut de la partie
-        for (int i=0; i<=nbJoueur; i++){
+        //Distribuer le nombre de jetons au debut de la partie
+        for (int i=0; i<nbJoueur; i++){
             partieList.get(i).setNbJetons(nbJetons);
         }
         //Récupération de la partieList
-        Intent intent = getIntent();
-        partieList = intent.getParcelableArrayListExtra("partieList");
+
         nomJoueurActuel.setText(partieList.get(0).getPseudo());
-        numberofjetons.setText(partieList.get(0).getNbJetons());
+        Log.d(TAG," oui cest : "+partieList.get(0).getNbJetons());
+        numberofjetons.setText("" + partieList.get(0).getNbJetons());
         rangJoueur=0;
 
 
@@ -150,7 +154,7 @@ public class partieActivity extends AppCompatActivity {
                     rangJoueur=0;
                 }
                 nomJoueurActuel.setText(partieList.get(rangJoueur).getPseudo());
-                numberofjetons.setText(partieList.get(rangJoueur).getNbJetons());
+                numberofjetons.setText(""+partieList.get(rangJoueur).getNbJetons());
             }
 
         });
