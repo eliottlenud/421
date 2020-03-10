@@ -44,9 +44,8 @@
             android:layout_height="80dp"
             android:text="@string/jouer"
             android:textSize="20dp"
-            android:background="@color/colorGreenVelvet"
             android:textStyle="bold"
-            />
+            android:background="@drawable/custom_button"/>
 
         <Button
             android:id="@+id/regles"
@@ -54,7 +53,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:text="@string/regles"
-            android:background="@color/colorGreenVelvet"/>
+            android:background="@drawable/custom_button"/>
     </LinearLayout>
 
     <LinearLayout
