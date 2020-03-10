@@ -61,17 +61,23 @@ public class partieActivity extends AppCompatActivity {
         //Definir le nombre de joueur
         int nbJoueur=partieList.size();
 
-        //Initialiser le nombre de jeton au debut
+        //Initialiser le nombre de jeton au debut de la partie
         int nbJetons;
         nbJetons=21/nbJoueur;
-        partieList.get(0).setNbJetons(3);
+
+        //Distribuer le nombre de jeton au debut de la partie
+        for (int i=0; i<=nbJoueur; i++){
+            partieList.get(i).setNbJetons(nbJetons);
+        }
+
+
+
 
         //récupérer le number of jetons
         numberofjetons = findViewById(R.id.numberofjetons);
 
 
-
-//Distrubuer les 21 jetons
+//Distribuer les 21 jetons
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
