@@ -44,13 +44,17 @@
             android:layout_height="80dp"
             android:text="@string/jouer"
             android:textSize="20dp"
+            android:background="@color/colorGreenVelvet"
+            android:textStyle="bold"
             />
 
         <Button
             android:id="@+id/regles"
             android:layout_width="200dp"
             android:layout_height="70dp"
-            android:text="@string/regles" />
+            android:layout_marginTop="10dp"
+            android:text="@string/regles"
+            android:background="@color/colorGreenVelvet"/>
     </LinearLayout>
 
     <LinearLayout
@@ -67,25 +71,46 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2">
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        android:outlineSpotShadowColor="@color/black">
 
         <ListView
             android:id="@+id/teamView"
             android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp"
+            android:outlineAmbientShadowColor="@color/whitee"
+            android:outlineSpotShadowColor="@color/black"
+            android:layout_gravity="center"
+            />
 
         <EditText
             android:id="@+id/edit"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:inputType="text"/>
-
+            android:inputType="text"
+            android:textColor="@color/whitee"
+            android:gravity="center"
+            android:textSize="20dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
         <Button
             android:id="@+id/ajouter"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:onClick="addPlayerToTeam"
-            android:text="@string/ajouter" />
+            android:text="@string/ajouter"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"
+            android:textSize="20dp"
+            />
+        <Button
+            android:id="@+id/reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/reset"
+            android:textSize="20dp"
+            style="@style/Widget.AppCompat.Button.Borderless.Colored"/>
+        </LinearLayout>
     </LinearLayout>
 
 
