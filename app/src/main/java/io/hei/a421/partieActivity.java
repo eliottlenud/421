@@ -35,6 +35,7 @@ public class partieActivity extends AppCompatActivity {
     private static int SHAKE_THRESHOLD = 10;
     public boolean moveit = true;
     public int nbclick = 0;
+    MediaPlayer sonDe;
 
 
 
@@ -45,10 +46,14 @@ public class partieActivity extends AppCompatActivity {
         LinearLayout rangee =  findViewById(R.id.rangee);
         Button finDuTour =  findViewById((R.id.finDuTour));
         final Button relancer =  findViewById((R.id.relancer));
+
+        //Définition des 3 dés + Nom joueur
         imageView1 =  findViewById(R.id.imageView1);
         imageView2 =  findViewById(R.id.imageView2);
         imageView3 =  findViewById(R.id.imageView3);
         nomJoueurActuel =  findViewById(R.id.nomJoueurActuel);
+
+        sonDe = MediaPlayer.create(this, R.raw.son);
 
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);  // on prend l'accelerometre
@@ -77,13 +82,17 @@ public class partieActivity extends AppCompatActivity {
         numberofjetons = findViewById(R.id.numberofjetons);
 
 
+
+
+//Distrubuer les 21 jetons
+/*---------TEST EN CLIQUANT SUR LES DES----------*/
 //Distribuer les 21 jetons
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                sonDe.start();
+                moveit = false; //On met en pause la possibilité de relancer
                 final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
-                final Animation anim2 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
-                final Animation anim3 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
 
                 final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
                     @Override
@@ -93,15 +102,31 @@ public class partieActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         int value = randomDiceValue();
-                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
+                        int value2 = randomDiceValue();
+                        int value3 = randomDiceValue();
+                        int temp;
 
-                        if (animation == anim1) {
-                            imageView1.setImageResource(res);
-                        } else if (animation == anim2) {
-                            imageView2.setImageResource(res);
-                        } else if (animation == anim3) {
-                            imageView3.setImageResource(res);
+                        //Trie les dés dans l'ordre décroissant
+                        while (value<value2 || value2<value3 || value<value3) {
+                            if (value<value2) {
+                                temp = value;
+                                value = value2;
+                                value2 = temp;
+                            }
+                            if (value2<value3) {
+                                temp = value2;
+                                value2 = value3;
+                                value3 = temp;
+                            }
                         }
+
+                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
+                        int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "io.hei.a421");
+                        int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "io.hei.a421");
+
+                        imageView1.setImageResource(res);
+                        imageView2.setImageResource(res2);
+                        imageView3.setImageResource(res3);
                     }
 
                     @Override
@@ -110,14 +135,14 @@ public class partieActivity extends AppCompatActivity {
                     }
                 };
                 anim1.setAnimationListener(animationListener);
-                anim2.setAnimationListener(animationListener);
-                anim3.setAnimationListener(animationListener);
 
                 imageView1.startAnimation(anim1);
-                imageView2.startAnimation(anim2);
-                imageView3.startAnimation(anim3);
+                imageView2.startAnimation(anim1);
+                imageView3.startAnimation(anim1);
             }
         });
+
+        //Bouton qui passe au joueur suivant
         finDuTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -133,6 +158,8 @@ public class partieActivity extends AppCompatActivity {
             }
 
         });
+
+        //Bouton qui permet au joueur actuel de relancer (max 3 lancers)
         relancer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -161,6 +188,7 @@ public class partieActivity extends AppCompatActivity {
         mSensorManager.unregisterListener(mSensorEventListener, mAccelerometer);
     }
 
+/*--------------------------------------------TEST AVEC SHAKE TELEPHONE----------------------------------------------------*/
     final SensorEventListener mSensorEventListener = new SensorEventListener() {
 
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -169,8 +197,6 @@ public class partieActivity extends AppCompatActivity {
 
         public void onSensorChanged(SensorEvent sensorEvent) {
             final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
-            final Animation anim2 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
-            final Animation anim3 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
 
             // Que faire en cas d'évènements sur le capteur ?
             float x = sensorEvent.values[0];
@@ -196,15 +222,31 @@ public class partieActivity extends AppCompatActivity {
                     @Override
                     public void onAnimationEnd(Animation animation) {
                         int value = randomDiceValue();
-                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
+                        int value2 = randomDiceValue();
+                        int value3 = randomDiceValue();
+                        int temp;
 
-                        if (animation == anim1) {
-                            imageView1.setImageResource(res);
-                        } else if (animation == anim2) {
-                            imageView2.setImageResource(res);
-                        } else if (animation == anim3) {
-                            imageView3.setImageResource(res);
+                        //Trie les dés dans l'ordre décroissant
+                        while (value<value2 || value2<value3 || value<value3) {
+                            if (value<value2) {
+                                temp = value;
+                                value = value2;
+                                value2 = temp;
+                            }
+                            if (value2<value3) {
+                                temp = value2;
+                                value2 = value3;
+                                value3 = temp;
+                            }
                         }
+
+                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
+                        int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "io.hei.a421");
+                        int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "io.hei.a421");
+
+                        imageView1.setImageResource(res);
+                        imageView2.setImageResource(res2);
+                        imageView3.setImageResource(res3);
                     }
 
                     @Override
@@ -213,12 +255,10 @@ public class partieActivity extends AppCompatActivity {
                     }
                 };
                 anim1.setAnimationListener(animationListener);
-                anim2.setAnimationListener(animationListener);
-                anim3.setAnimationListener(animationListener);
 
                 imageView1.startAnimation(anim1);
-                imageView2.startAnimation(anim2);
-                imageView3.startAnimation(anim3);
+                imageView2.startAnimation(anim1);
+                imageView3.startAnimation(anim1);
 
             }
 
