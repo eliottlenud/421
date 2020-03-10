@@ -16,6 +16,7 @@
 
         <activity android:name=".partieActivity"></activity>
         <activity android:name=".Shakeit"></activity>
+        <activity android:name=".menuRegles"></activity>
         <activity android:name=".MainActivity">
 
             <intent-filter>
@@ -24,8 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".partieActivity">
-        </activity>
+
+
+
     </application>
 
 

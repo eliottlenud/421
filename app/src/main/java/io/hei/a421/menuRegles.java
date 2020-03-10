@@ -1,6 +1,7 @@
 package io.hei.a421;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -10,8 +11,10 @@ public class menuRegles extends AppCompatActivity {
 
     Button button1, button2, button3, button4, button5, button6;
 
-    protected void OnCreate(Bundle savedInstantiateState){
-        super.onCreate(savedInstantiateState);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Test","MenuRegles - intent 0");
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.reglesjeu_layout);
 
     button1 = findViewById(R.id.button1);
@@ -20,11 +23,15 @@ public class menuRegles extends AppCompatActivity {
     button4= findViewById(R.id.button4);
     button5= findViewById(R.id.button5);
     button6= findViewById(R.id.button6);
+    Log.d("Test","MenuRegles");
+    Log.d("Test",button1.toString());
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.button1);
+                Log.d("Test","Boutton 1");
+                changeLayout();
             }
         });
 
@@ -62,5 +69,10 @@ public class menuRegles extends AppCompatActivity {
                 setContentView(R.layout.button6);
             }
         });
+    }
+
+    public void changeLayout(){
+        setContentView(R.layout.button1);
+        Log.d("Test","Bouton 1 - fct");
     }
 }

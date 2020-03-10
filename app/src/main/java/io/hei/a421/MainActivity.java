@@ -82,7 +82,9 @@ public class MainActivity extends AppCompatActivity {
         buttonRegles.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.reglesjeu_layout);
+                Log.d("Test","MenuRegles - intent");
+                Intent intent = new Intent(MainActivity.this, menuRegles.class);
+                startActivity(intent);
             }
         });
     }
