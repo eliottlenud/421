@@ -56,7 +56,7 @@ public class partieActivity extends AppCompatActivity {
         nomJoueurActuel =  findViewById(R.id.nomJoueurActuel);
         numberofjetons = findViewById(R.id.numberofjetons);
 
-        sonDe = MediaPlayer.create(this, R.raw.son);
+        //sonDe = MediaPlayer.create(this, R.raw.son);
 
         //Sensor
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -89,7 +89,7 @@ public class partieActivity extends AppCompatActivity {
         rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sonDe.start();
+                //sonDe.start();
                 moveit = false; //On met en pause la possibilité de relancer
                 final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
 
