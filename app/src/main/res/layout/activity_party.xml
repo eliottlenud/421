@@ -21,6 +21,13 @@
 
     </TextView>
 
+    <TextView
+        android:id="@+id/numberofjetons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="15dp" />
+
     <LinearLayout
         android:id="@+id/rangee"
         android:layout_width="wrap_content"

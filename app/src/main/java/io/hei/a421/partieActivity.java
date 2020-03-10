@@ -27,7 +27,7 @@ public class partieActivity extends AppCompatActivity {
 
     public static final Random RANDOM = new Random();
     public ImageView imageView1, imageView2, imageView3; //Les 3 images des dès
-    public TextView nomJoueurActuel; //Nom du joueur qui joue
+    public TextView nomJoueurActuel, numberofjetons; //Nom du joueur qui joue
     public int rangJoueur; //Pour parcourir la liste des joueurs
     private SensorManager mSensorManager = null;
     private Sensor mAccelerometer = null;
@@ -65,6 +65,9 @@ public class partieActivity extends AppCompatActivity {
         int nbJetons;
         nbJetons=21/nbJoueur;
         partieList.get(0).setNbJetons(3);
+
+        //récupérer le number of jetons
+        numberofjetons = findViewById(R.id.numberofjetons);
 
 
 
