@@ -8,7 +8,8 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="io.hei.a421.partieActivity">
+    tools:context="io.hei.a421.partieActivity"
+    android:background="@drawable/tapis">
 
     <TextView
         android:id="@+id/nomJoueurActuel"
@@ -20,6 +21,35 @@
         android:textColor="#000000">
 
     </TextView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:id="@+id/scoreTest"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="350dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/valeur1"
+            android:text=""
+            android:layout_width="100dp"
+            android:textColor="@color/whitee"
+            android:layout_height="100dp"/>
+        <TextView
+            android:id="@+id/valeur2"
+            android:text=""
+            android:layout_width="100dp"
+            android:textColor="@color/whitee"
+            android:layout_height="100dp"/>
+        <TextView
+            android:id="@+id/valeur3"
+            android:text=""
+            android:layout_width="100dp"
+            android:textColor="@color/whitee"
+            android:layout_height="100dp"/>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/numberofjetons"
@@ -74,18 +104,21 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:text="Fin du tour"
-            android:textSize="15sp" />
+            android:textSize="15sp"
+            android:background="@drawable/custom_button"/>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/relancer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="200dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="350dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Relancer" />
+        android:text="Relancer"
+        android:background="@drawable/custom_button" />
+
 
 
 </RelativeLayout>

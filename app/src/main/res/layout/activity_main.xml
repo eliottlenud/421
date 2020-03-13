@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@drawable/tapis">
+    android:background="@drawable/tapis"
+    android:theme="@style/AppTheme">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="269dp"
         android:layout_height="154dp"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="45dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toTopOf="@+id/team"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
@@ -44,8 +45,8 @@
             android:layout_height="80dp"
             android:text="@string/jouer"
             android:textSize="20dp"
-            android:background="@color/colorGreenVelvet"
             android:textStyle="bold"
+            android:background="@drawable/custom_button"
             />
 
         <Button
@@ -54,7 +55,7 @@
             android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:text="@string/regles"
-            android:background="@color/colorGreenVelvet"/>
+            android:background="@drawable/custom_button"/>
     </LinearLayout>
 
     <LinearLayout
@@ -76,7 +77,7 @@
 
         <ListView
             android:id="@+id/teamView"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="200dp"
             android:outlineAmbientShadowColor="@color/whitee"
             android:outlineSpotShadowColor="@color/black"
@@ -85,7 +86,7 @@
 
         <EditText
             android:id="@+id/edit"
-            android:layout_width="match_parent"
+            android:layout_width="350dp"
             android:layout_height="40dp"
             android:inputType="text"
             android:textColor="@color/whitee"
@@ -96,7 +97,7 @@
             android:layout_height="wrap_content">
         <Button
             android:id="@+id/ajouter"
-            android:layout_width="200dp"
+            android:layout_width="150dp"
             android:layout_height="50dp"
             android:onClick="addPlayerToTeam"
             android:text="@string/ajouter"
@@ -105,8 +106,8 @@
             />
         <Button
             android:id="@+id/reset"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="50dp"
             android:text="@string/reset"
             android:textSize="20dp"
             style="@style/Widget.AppCompat.Button.Borderless.Colored"/>

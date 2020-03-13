@@ -1,14 +1,19 @@
 package io.hei.a421;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -29,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     EditText editText;
     Button buttonAdd, buttonJouer, buttonRegles, buttonReset;
+    MainActivity mainActivity;
     int i = 0;
     String TAG = "MainActivity";
 
@@ -96,6 +102,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //menu d'option (Paul)
+   /*@Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_navigation,menu);
+        return true;
+    }
+
+    Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.Credits :
+                AlertDialog.Builder credit = new AlertDialog.Builder(mainActivity);
+                credit.setTitle("Crédits");
+                credit.setMessage("BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA ");
+                credit.show();
+
+                }
+            return super.onOptionsItemSelected(item);}*/
 
     public void addPlayerToTeam(View v){
         partie.add(editText.getText().toString());

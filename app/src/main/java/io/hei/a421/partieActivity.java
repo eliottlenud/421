@@ -1,6 +1,5 @@
 package io.hei.a421;
 
-import android.app.AppComponentFactory;
 import android.content.Context;
 import android.content.Intent;
 import android.hardware.Sensor;
@@ -28,7 +27,7 @@ public class partieActivity extends AppCompatActivity {
 
     public static final Random RANDOM = new Random();
     public ImageView imageView1, imageView2, imageView3; //Les 3 images des dès
-    public TextView nomJoueurActuel, numberofjetons; //Nom du joueur qui joue
+    public TextView nomJoueurActuel, numberofjetons, valeur1,valeur2,valeur3; //Nom du joueur qui joue
     public int rangJoueur; //Pour parcourir la liste des joueurs
     private SensorManager mSensorManager = null;
     private Sensor mAccelerometer = null;
@@ -36,6 +35,8 @@ public class partieActivity extends AppCompatActivity {
     private static int SHAKE_THRESHOLD = 10;
     public boolean moveit = true;
     public int nbclick = 0;
+    int a=0,b=0,c=0;
+    boolean verouillage_1,verouillage_2,verouillage_3;
     MediaPlayer sonDe;
     String TAG = "partieActivity";
 
@@ -53,6 +54,9 @@ public class partieActivity extends AppCompatActivity {
         imageView1 =  findViewById(R.id.imageView1);
         imageView2 =  findViewById(R.id.imageView2);
         imageView3 =  findViewById(R.id.imageView3);
+        valeur1 = findViewById(R.id.valeur1);
+        valeur2 = findViewById(R.id.valeur2);
+        valeur3 = findViewById(R.id.valeur3);
         nomJoueurActuel =  findViewById(R.id.nomJoueurActuel);
         numberofjetons = findViewById(R.id.numberofjetons);
 
@@ -86,7 +90,7 @@ public class partieActivity extends AppCompatActivity {
 
 /*---------TEST EN CLIQUANT SUR LES DES----------*/
 //Lancer les dés
-        rangee.setOnClickListener(new View.OnClickListener() {
+        /*rangee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //sonDe.start();
@@ -139,6 +143,58 @@ public class partieActivity extends AppCompatActivity {
                 imageView2.startAnimation(anim1);
                 imageView3.startAnimation(anim1);
             }
+
+
+
+        }
+        );*/
+/*-------------------------VERROUILLAGE DES DES--------------------------*/
+        //verouiller le dé 1
+        imageView1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (a==0) {
+                    imageView1.setBackgroundResource(R.drawable.fond_vert_de);
+                    verouillage_1 =true;
+                    a=1;
+                }else {
+                    imageView1.setBackgroundResource(R.drawable.tapis);
+                    verouillage_1 =false;
+                    a=0;
+                }
+            }
+        });
+
+        //verouiller le dé 2
+        imageView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (b==0) {
+                    imageView2.setBackgroundResource(R.drawable.fond_vert_de);
+                    verouillage_2 =true;
+                    b=1;
+                }else {
+                    imageView2.setBackgroundResource(R.drawable.tapis);
+                    verouillage_2 =false;
+                    b=0;
+                }
+            }
+        });
+
+        //verouiller le dé 3
+        imageView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (c==0) {
+                    imageView3.setBackgroundResource(R.drawable.fond_vert_de);
+                    verouillage_3 =true;
+                    c=1;
+                }else {
+                    imageView3.setBackgroundResource(R.drawable.tapis);
+                    verouillage_3 =false;
+                    c=0;
+                }
+            }
         });
 
         //Bouton qui passe au joueur suivant
@@ -188,7 +244,7 @@ public class partieActivity extends AppCompatActivity {
         mSensorManager.unregisterListener(mSensorEventListener, mAccelerometer);
     }
 
-/*--------------------------------------------TEST AVEC SHAKE TELEPHONE----------------------------------------------------*/
+    /*--------------------------------------------TEST AVEC SHAKE TELEPHONE----------------------------------------------------*/
     final SensorEventListener mSensorEventListener = new SensorEventListener() {
 
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
@@ -211,9 +267,6 @@ public class partieActivity extends AppCompatActivity {
 
             if (acceleration > SHAKE_THRESHOLD) {
                 moveit = false;
-                int value1 = randomDiceValue();
-                int value2 = randomDiceValue();
-                int value3 = randomDiceValue();
                 final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
@@ -244,9 +297,9 @@ public class partieActivity extends AppCompatActivity {
                         int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "io.hei.a421");
                         int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "io.hei.a421");
 
-                        imageView1.setImageResource(res);
-                        imageView2.setImageResource(res2);
-                        imageView3.setImageResource(res3);
+                        if (verouillage_1==false){ imageView1.setImageResource(res);}
+                        if (verouillage_2==false){ imageView2.setImageResource(res2);}
+                        if (verouillage_3==false){ imageView3.setImageResource(res3);}
                     }
 
                     @Override
@@ -276,5 +329,7 @@ public class partieActivity extends AppCompatActivity {
             onPause();
         }
     }
+
+
 
 }
