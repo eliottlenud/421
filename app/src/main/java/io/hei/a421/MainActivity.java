@@ -81,10 +81,17 @@ public class MainActivity extends AppCompatActivity {
         buttonJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (partie.size()>=2){
                 createTeam();
                 Intent intent = new Intent(MainActivity.this, partieActivity.class);
                 intent.putParcelableArrayListExtra("partieList", partieList);
-                startActivity(intent);
+                startActivity(intent);}
+                else {
+                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                    alertDialogBuilder.setMessage("Veuillez rentrez au moins 2 joueurs.");
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
             }
         });
         buttonRegles.setOnClickListener(new View.OnClickListener() {

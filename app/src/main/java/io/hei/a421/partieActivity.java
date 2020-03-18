@@ -106,6 +106,7 @@ public class partieActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //sonDe.start();
+                nbclick = nbclick + 1;
                 moveit = false; //On met en pause la possibilité de relancer
                 final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
 
@@ -179,7 +180,7 @@ public class partieActivity extends AppCompatActivity {
         imageView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (a==0) {
+                if (a==0 && nbclick!=0) {
                     imageView1.setBackgroundColor(Color.RED);
                     verouillage_1 =true;
                     a=1;
@@ -195,7 +196,7 @@ public class partieActivity extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (b==0) {
+                if (b==0  && nbclick!=0) {
                     imageView2.setBackgroundColor(Color.RED);
                     verouillage_2 =true;
                     b=1;
@@ -211,7 +212,7 @@ public class partieActivity extends AppCompatActivity {
         imageView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (c==0) {
+                if (c==0 && nbclick!=0) {
                     imageView3.setBackgroundColor(Color.RED);
                     verouillage_3 =true;
                     c=1;
@@ -236,6 +237,12 @@ public class partieActivity extends AppCompatActivity {
                 if (rangJoueur == partieList.size()){
                     rangJoueur=0;
                 }
+                imageView1.setBackgroundColor(Color.TRANSPARENT);
+                imageView2.setBackgroundColor(Color.TRANSPARENT);
+                imageView3.setBackgroundColor(Color.TRANSPARENT);
+                verouillage_1 = false;
+                verouillage_2 = false;
+                verouillage_3 = false;
                 nomJoueurActuel.setText(partieList.get(rangJoueur).getPseudo());
                 numberofjetons.setText(""+partieList.get(rangJoueur).getNbJetons());
                 listeIndex.add(Tableau.listeScores.indexOf(score));
