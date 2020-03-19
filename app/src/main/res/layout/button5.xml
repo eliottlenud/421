@@ -10,27 +10,34 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            style="@style/textpara"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:gravity="center"
-            android:text="@string/button5"
-            android:textSize="20dp"></TextView>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
+            <TextView
+                style="@style/textpara"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/button5"
+                android:textSize="20dp"></TextView>
+
+            <ImageView
+                android:id="@+id/button5image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:src="@drawable/button5">
+            </ImageView>
+
+        </LinearLayout>
 
     </ScrollView>
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <!-- Mettre l'image du tableau -->
-
-    </ImageView>
-
-
-
 
 </LinearLayout>

@@ -14,8 +14,7 @@
         android:textSize="20dp"
         android:gravity="center"
         android:text="@string/button6"
-        style="@style/textpara"
-        >
+        style="@style/textpara">
     </TextView>
 
 </LinearLayout>
