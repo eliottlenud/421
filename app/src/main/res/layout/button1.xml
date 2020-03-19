@@ -7,15 +7,13 @@
     android:orientation="horizontal">
 
     <TextView
+        style="@style/textpara"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textSize="20dp"
         android:gravity="center"
-        android:text="@string/button1"
-        style="@style/text"
-        >
-    </TextView>
+        android:text="@string/button1"></TextView>
 
 </LinearLayout>

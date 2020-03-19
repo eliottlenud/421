@@ -6,6 +6,9 @@
     android:background="@drawable/tapis"
     android:orientation="horizontal">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -14,8 +17,9 @@
         android:textSize="20dp"
         android:gravity="center"
         android:text="@string/button3"
-        style="@style/text">
+        style="@style/textpara">
     </TextView>
+    </ScrollView>
 
     <ImageView
         android:layout_width="wrap_content"

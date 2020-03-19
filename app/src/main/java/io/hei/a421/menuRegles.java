@@ -13,7 +13,6 @@ public class menuRegles extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("Test","MenuRegles - intent 0");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reglesjeu_layout);
 
@@ -23,8 +22,7 @@ public class menuRegles extends AppCompatActivity {
     button4= findViewById(R.id.button4);
     button5= findViewById(R.id.button5);
     button6= findViewById(R.id.button6);
-    Log.d("Test","MenuRegles");
-    Log.d("Test",button1.toString());
+
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,17 +6,22 @@
     android:background="@drawable/tapis"
     android:orientation="horizontal">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:textSize="20dp"
-        android:gravity="center"
-        android:text="@string/button5"
-        style="@style/text"
-        >
-    </TextView>
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/textpara"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="@string/button5"
+            android:textSize="20dp"></TextView>
+
+
+    </ScrollView>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -24,6 +29,8 @@
         <!-- Mettre l'image du tableau -->
 
     </ImageView>
+
+
 
 
 </LinearLayout>

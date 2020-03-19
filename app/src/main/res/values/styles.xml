@@ -19,4 +19,12 @@
     <style name="text">
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
+    <style name="textpara">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textSize">25dp</item>
+        <item name="fontFamily">casual</item>
+        <item name="android:gravity">center</item>
+
+    </style>
 </resources>

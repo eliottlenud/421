@@ -5,39 +5,46 @@
     <string name="regles">Règles</string>
     <string name="ajouter">Ajouter</string>
     <string name="regleecrite">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam at dui mauris. Praesent aliquet eleifend urna, ac tempus sem pretium eget. Nulla laoreet ligula sed nibh ultricies commodo. Etiam vitae justo lacinia, egestas elit ut, viverra ligula. Quisque convallis auctor aliquam. Ut ornare volutpat elit, et elementum dui. Duis ullamcorper tellus vel lectus rhoncus, vitae tempus tellus dictum. Nunc finibus diam sed scelerisque aliquet. Duis tempus mi sit amet massa imperdiet porta. Praesent fermentum accumsan turpis eu condimentum. Duis consectetur nec felis ac pretium. Etiam id nibh quis odio tristique bibendum vel ut dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus sapien nisi, sodales rhoncus dolor ut, sodales varius dolor.</string>
-    <string name="button1">Pour jouer au 421, il vous faut : <br>
-                                Être minimum deux joueurs </br>
-                                3 dés
-                                Un « pot » de 21 jetons
+    <string name="button1">Pour jouer au 421, il vous faut : \n
+                                \n
+                                - Être minimum deux joueurs  \n
+                                - 3 dés \n
+                                - Un « pot » de 21 jetons \n
     </string>
     <string name="button2">
-        Commencer une partie de 421 :
-        Pour commencer une partie de 421, il faut dans un premier temps déterminer le joueur qui commencera la partie. Pour ce faire, il faut lancer une partie de dés entre les joueurs. Celui qui fait le plus petit score ou le plus grand score lance la partie, c’est à vous de décider au départ. Chaque joueur lance les dés tour à tour en respectant le sens des aiguilles d’une montre.
+        Commencer une partie de 421 : \n
+        \n
+        Pour commencer une partie de 421, il faut dans un premier temps déterminer le joueur qui commencera la partie.\n \n
+        Pour ce faire, il faut lancer une partie de dés entre les joueurs. \n \n
+        Celui qui fait le plus petit score ou le plus grand score lance la partie, c’est à vous de décider au départ. \n \n
+        Chaque joueur lance les dés tour à tour en respectant le sens des aiguilles d’une montre.
     </string>
     <string name="button3">
-        Ordre et valeur des combinaisons au 421 :
-        Au 421, on respecte cet ordre : as, six, cinq, quatre, trois et deux. L’as étant le plus fort.
-        Voici les combinaisons du 421 par ordre de valeur. De la meilleure combinaison à la moins bonne.
+        Ordre et valeur des combinaisons au 421 : \n \n
+        Au 421, on respecte cet ordre : as, six, cinq, quatre, trois et deux. L’as étant le plus fort. \n \n
+        Voici les combinaisons du 421 par ordre de valeur. De la meilleure combinaison à la moins bonne. \n \n
     </string>
 
     <string name="button4">
-        Comment jouer au 421 :
-        On joue généralement le 421 en deux manches, la « charge » et la « décharge ». L’ensemble des jetons est appelé le « pot ».
-        Lors de la première partie du jeu, la « charge », les joueurs vont se répartir les 21 jetons entre eux en espérant en récupérer le moins possible. Lors de la deuxième partie, la « décharge », les joueurs devront se débarrasser du plus de jetons possible.
-        Le joueur ayant remporté le jeu de dés démarrera la partie en lançant les trois dés. Pour chacun des trois dés il peut choisir de relancer ou non. S’il ne relance pas il aura effectué un seul lancer. Le joueur peut, si il le désire, relancer une deuxième et une troisième fois tout ou partie des trois dés. Ceci va influer sur le reste de la manche car les autres joueurs devront effectuer le même nombre de lancers que le premier joueur.
-        Ainsi, si le premier joueur à lancé trois fois les dés les autres joueurs devront faire de même. Si le deuxième joueur réussis un 421 dès son premier lancer, il devra tout de même relancer les dés pour respecter les trois lancers.
-        Dans certaines variantes cette règle est assouplie. En effet, lorsqu’un joueur est satisfait de sa combinaison il peut taper sur la table en disant « le bon ». Cela lui permet de valider sa combinaison sans avoir à faire le même nombre de lancer que le premier joueur. Bien sûr, le nombre maximum de lancer est toujours de trois. Ceci doit être annoncé avant le début de la partie pour que tous les joueurs soit d’accord sur les règles.
-        Au cours de la « charge », celui qui fait la moins bonne combinaison reçoit des jetons du « pot ». Le nombre de jetons distribué au joueur est déterminé par la meilleure combinaison
+        Comment jouer au 421 : \n \n
+        On joue généralement le 421 en deux manches, la « charge » et la « décharge ». L’ensemble des jetons est appelé le «pot» \n \n
+        Lors de la première partie du jeu, la « charge », les joueurs vont se répartir les 21 jetons entre eux en espérant en récupérer le moins possible. Lors de la deuxième partie, la « décharge », les joueurs devront se débarrasser du plus de jetons possible. \n \n
+        Le joueur ayant remporté le jeu de dés démarrera la partie en lançant les trois dés. Pour chacun des trois dés il peut choisir de relancer ou non. S’il ne relance pas il aura effectué un seul lancer. Le joueur peut, si il le désire, relancer une deuxième et une troisième fois tout ou partie des trois dés.
+        Ceci va influer sur le reste de la manche car les autres joueurs devront effectuer le même nombre de lancers que le premier joueur. \n \n
+        Ainsi, si le premier joueur à lancé trois fois les dés les autres joueurs devront faire de même. Si le deuxième joueur réussis un 421 dès son premier lancer, il devra tout de même relancer les dés pour respecter les trois lancers. \n \n
+        Dans certaines variantes cette règle est assouplie. En effet, lorsqu’un joueur est satisfait de sa combinaison il peut taper sur la table en disant « le bon ». Cela lui permet de valider sa combinaison sans avoir à faire le même nombre de lancer que le premier joueur. Bien sûr, le nombre maximum de lancer est toujours de trois. Ceci doit être annoncé avant le début de la partie pour que tous les joueurs soit d’accord sur les règles. \n \n
+        Au cours de la « charge », celui qui fait la moins bonne combinaison reçoit des jetons du « pot ». Le nombre de jetons distribué au joueur est déterminé par la meilleure combinaison. \n \n
     </string>
     <string name="button5">
-        Valeur des combinaisons en jetons au 421 :
-        La combinaison 2,2,1 est appelée « nénette ». C’est la plus faible des combinaisons. Peu importe la meilleure combinaison qui a été réalisée, celui qui fait une « nénette » reçoit d’office 2 jetons.
-        Exemple : quand la meilleure combinaison de la manche est 2 as – six, celui qui a réalisé la moins bonne combinaison se voit attribué 6 jetons.
-        Une fois que le « pot » est vide on peut alors commencer la deuxième manche. Lors de la « décharge » le but est d’être le premier joueur à ne plus avoir de jetons. Les règles sont les mêmes, la meilleure combinaison du tour donne ses jetons à la plus faible. Lorsqu’un joueur n’a plus de jetons la partie se termine et il est déclaré vainqueur.
+        Valeur des combinaisons en jetons au 421 : \n \n
+        La combinaison 2,2,1 est appelée « nénette ». C’est la plus faible des combinaisons. Peu importe la meilleure combinaison qui a été réalisée, celui qui fait une « nénette » reçoit d’office 2 jetons. \n \n
+        Exemple : quand la meilleure combinaison de la manche est 2 as – six, celui qui a réalisé la moins bonne combinaison se voit attribué 6 jetons. \n \n
+        Une fois que le « pot » est vide on peut alors commencer la deuxième manche. Lors de la « décharge » le but est d’être le premier joueur à ne plus avoir de jetons. Les règles sont les mêmes, la meilleure combinaison du tour donne ses jetons à la plus faible. Lorsqu’un joueur n’a plus de jetons la partie se termine et il est déclaré vainqueur. \n \n
     </string>
     <string name="button6">
-        Comment gagner au 421 :
-        Pour gagner une partie de 421, il faut être le premier joueur à ne plus avoir de jetons au terme des deux manches. Il faut savoir qu’il existe de nombreuses variantes à la règle de base. Ainsi, il est toujours possible d’ajouter des règles pour pimenter le jeu du 421.
+        Comment gagner au 421 : \n \n
+        Pour gagner une partie de 421, il faut être le premier joueur à ne plus avoir de jetons au terme des deux manches. \n \n
+        Il faut savoir qu’il existe de nombreuses variantes à la règle de base. Ainsi, il est toujours possible d’ajouter des règles pour pimenter le jeu du 421. \n \n
     </string>
     <string name="reset">Reset</string>
 </resources>

@@ -6,15 +6,21 @@
     android:background="@drawable/tapis"
     android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:textSize="16dp"
-        android:gravity="center"
-        android:text="@string/button4"
-        style="@style/text">
-    </TextView>
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            style="@style/textpara"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="@string/button4"
+            android:textSize="20dp"></TextView>
+
+
+    </ScrollView>
 </LinearLayout>
