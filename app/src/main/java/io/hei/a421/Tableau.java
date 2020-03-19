@@ -8,7 +8,7 @@ public class Tableau{
 
     //Tableau à 3 colonnes : Classement, Combinaison, NbdeJetonsADonner
 
-    public static int tableau[][]=
+    public static int[][] tableau =
             {
                     {421,7},
                     {111,6},

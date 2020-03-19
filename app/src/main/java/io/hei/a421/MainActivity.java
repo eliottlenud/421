@@ -34,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     EditText editText;
     Button buttonAdd, buttonJouer, buttonRegles, buttonReset;
-    MainActivity mainActivity;
-    int i = 0;
     String TAG = "MainActivity";
 
     @Override
@@ -44,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         listView = findViewById(R.id.teamView);
-
         editText = findViewById(R.id.edit);
         buttonAdd = findViewById(R.id.ajouter);
         buttonJouer = findViewById(R.id.jouer);
@@ -53,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
 
         partie = new ArrayList<>();
         arrayAdapter = new ArrayAdapter<>(this, R.layout.player_box, R.id.pseudo, partie);
-        TextView pseudo = findViewById(R.id.pseudo);
         listView.setAdapter(arrayAdapter);
+
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
         buttonJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,26 +108,6 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    //menu d'option (Paul)
-   /*@Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_navigation,menu);
-        return true;
-    }
-
-    Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.Credits :
-                AlertDialog.Builder credit = new AlertDialog.Builder(mainActivity);
-                credit.setTitle("Crédits");
-                credit.setMessage("BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA BLA ");
-                credit.show();
-
-                }
-            return super.onOptionsItemSelected(item);}*/
-
     public void addPlayerToTeam(View v){
         partie.add(editText.getText().toString());
         arrayAdapter.notifyDataSetChanged();
@@ -149,5 +127,4 @@ public class MainActivity extends AppCompatActivity {
         partie.clear();
         arrayAdapter.notifyDataSetChanged();
     }
-
 }

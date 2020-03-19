@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
@@ -34,7 +35,9 @@ public class partieActivity extends AppCompatActivity {
     public static final Random RANDOM = new Random();
     public ImageView imageView1, imageView2, imageView3;        //Les 3 images des dés
     public TextView nomJoueurActuel, numberofjetons, topScore, minScore;  //Nom du joueur qui joue
-    public int rangJoueur;                                      //Pour parcourir la liste des joueurs
+    public int rangJoueur;
+    public Button relancer,lancer;
+    //Pour parcourir la liste des joueurs
     private SensorManager mSensorManager = null;                //Pour lancer les dés en secouant l'appareil
     private Sensor mAccelerometer = null;
     private static int SHAKE_THRESHOLD = 10;
@@ -58,8 +61,8 @@ public class partieActivity extends AppCompatActivity {
         setContentView(R.layout.activity_party);
         LinearLayout rangee =  findViewById(R.id.rangee);
         Button finDuTour =  findViewById((R.id.finDuTour));
-        Button lancer =  findViewById((R.id.lancer));
-        final Button relancer =  findViewById((R.id.relancer));
+        relancer = findViewById((R.id.relancer));
+        relancer.setVisibility(View.INVISIBLE);
 
         //Définition des 3 dés + Nom joueur + Nb de jetons du joueur
         imageView1 =  findViewById(R.id.imageView1);
@@ -89,7 +92,6 @@ public class partieActivity extends AppCompatActivity {
             partieList.get(i).setNbJetons(nbJetons);
         }
         //Récupération de la partieList
-
         nomJoueurActuel.setText(partieList.get(0).getPseudo());
         Log.d(TAG," oui cest : "+partieList.get(0).getNbJetons());
         numberofjetons.setText("" + partieList.get(0).getNbJetons());
@@ -100,81 +102,9 @@ public class partieActivity extends AppCompatActivity {
 
 
 
-        /*------------------------------TEST EN CLIQUANT SUR LES DES--------------------*/
-        //Lancer les dés
-        lancer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //sonDe.start();
-                nbclick = nbclick + 1;
-                moveit = false; //On met en pause la possibilité de relancer
-                final Animation anim1 = AnimationUtils.loadAnimation(partieActivity.this, R.anim.shake);
 
-                final Animation.AnimationListener animationListener = new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                    }
 
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
 
-                        if (verouillage_1==false){ value = randomDiceValue();}
-                        if (verouillage_2==false){ value2 = randomDiceValue();}
-                        if (verouillage_3==false){ value3 = randomDiceValue();}
-                        int temp;
-
-                        //Trie les dés dans l'ordre décroissant
-                        while (value<value2 || value2<value3 || value<value3) {
-                            if (value<value2) {
-                                temp = value;
-                                value = value2;
-                                value2 = temp;
-                            }
-                            if (value2<value3) {
-                                temp = value2;
-                                value2 = value3;
-                                value3 = temp;
-                            }
-                        }
-
-                        System.out.println("Value 1 = "+value);
-                        System.out.println("Value 2 = "+value2);
-                        System.out.println("Value 3 = "+value3);
-                        score = value*100 + value2 *10 + value3;
-                        System.out.println("Nombre de jetons = "+tableau[listeScore.indexOf(score)][1]);
-
-                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
-                        int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "io.hei.a421");
-                        int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "io.hei.a421");
-
-                        imageView1.setImageResource(res);
-                        imageView2.setImageResource(res2);
-                        imageView3.setImageResource(res3);
-
-                        a = 0;
-                        b = 0;
-                        c = 0;
-                        verouillage_1 = false;
-                        verouillage_2 = false;
-                        verouillage_3 = false;
-                        imageView1.setBackgroundColor(Color.TRANSPARENT);
-                        imageView2.setBackgroundColor(Color.TRANSPARENT);
-                        imageView3.setBackgroundColor(Color.TRANSPARENT);
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                };
-                anim1.setAnimationListener(animationListener);
-
-                imageView1.startAnimation(anim1);
-                imageView2.startAnimation(anim1);
-                imageView3.startAnimation(anim1);
-            }
-        }
-        );
 /*------------------------------------------------------VERROUILLAGE DES DES--------------------------------------------------*/
         //verrouiller le dé 1
         imageView1.setOnClickListener(new View.OnClickListener() {
@@ -231,7 +161,7 @@ public class partieActivity extends AppCompatActivity {
             public void onClick(View v) {
                 nbclick= 0;
                 moveit = true;
-                relancer.setVisibility(View.VISIBLE);
+                relancer.setVisibility(View.INVISIBLE);
                 onResume();
                 rangJoueur ++;
                 if (rangJoueur == partieList.size()){
@@ -249,9 +179,14 @@ public class partieActivity extends AppCompatActivity {
                 topScore.setText(""+Tableau.listeScores.get(Collections.min(listeIndex)));
                 minScore.setText(""+Tableau.listeScores.get(Collections.max(listeIndex)));
                 System.out.println("La liste des scores est "+listeIndex);
+                final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
+                alertDialogBuilder.setMessage("Votre score est de : "+value+value2+value3+". Veuillez passer au joueur suivant.");
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
             }
 
         });
+
 
 /*-----------------------------------------BOUTON RELANCER----------------------------------------------------*/
         //Bouton qui permet au joueur actuel de relancer (max 3 lancers)
@@ -260,12 +195,8 @@ public class partieActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (moveit == false) {
                     moveit = true;
-
+                    relancer.setVisibility(View.INVISIBLE);
                     onResume();
-                    nbclick = nbclick + 1;
-                    if (nbclick == 2) {
-                        relancer.setVisibility(View.INVISIBLE);
-                    }
                 }
             }
         });
@@ -285,8 +216,12 @@ public class partieActivity extends AppCompatActivity {
         mSensorManager.unregisterListener(mSensorEventListener, mAccelerometer);
     }
 
+
+
     /*--------------------------------------------TEST AVEC SHAKE TELEPHONE----------------------------------------------------*/
     final SensorEventListener mSensorEventListener = new SensorEventListener() {
+
+
 
         public void onAccuracyChanged(Sensor sensor, int accuracy) {
             // Que faire en cas de changement de précision ?
@@ -312,6 +247,7 @@ public class partieActivity extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
+
                         System.out.println("Quand je secoue");
                         System.out.println("verrouillage 1 = "+verouillage_1);
                         System.out.println("verrouillage 2 = "+verouillage_2);
@@ -340,11 +276,11 @@ public class partieActivity extends AppCompatActivity {
                         System.out.println("Value 3 = "+value3);
                         score = value*100 + value2 *10 + value3;
 
-                        int res = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
+                        int res1 = getResources().getIdentifier("dice_" + value, "drawable", "io.hei.a421");
                         int res2 = getResources().getIdentifier("dice_" + value2, "drawable", "io.hei.a421");
                         int res3 = getResources().getIdentifier("dice_" + value3, "drawable", "io.hei.a421");
 
-                        imageView1.setImageResource(res);
+                        imageView1.setImageResource(res1);
                         imageView2.setImageResource(res2);
                         imageView3.setImageResource(res3);
 
@@ -357,7 +293,36 @@ public class partieActivity extends AppCompatActivity {
                         imageView1.setBackgroundColor(Color.TRANSPARENT);
                         imageView2.setBackgroundColor(Color.TRANSPARENT);
                         imageView3.setBackgroundColor(Color.TRANSPARENT);
+                        nbclick ++;
+                        relancer.setVisibility(View.VISIBLE);
+                        System.out.println("nb de lancer : "+nbclick);
+                        if (nbclick==3){
+                            relancer.setVisibility(View.INVISIBLE);
+                            nbclick= 0;
+                            moveit = true;
+                            onResume();
+                            rangJoueur ++;
+                            if (rangJoueur == partieList.size()){
+                                rangJoueur=0;
+                            }
+                            imageView1.setBackgroundColor(Color.TRANSPARENT);
+                            imageView2.setBackgroundColor(Color.TRANSPARENT);
+                            imageView3.setBackgroundColor(Color.TRANSPARENT);
+                            verouillage_1 = false;
+                            verouillage_2 = false;
+                            verouillage_3 = false;
+                            nomJoueurActuel.setText(partieList.get(rangJoueur).getPseudo());
+                            numberofjetons.setText(""+partieList.get(rangJoueur).getNbJetons());
+                            listeIndex.add(Tableau.listeScores.indexOf(score));
+                            topScore.setText(""+Tableau.listeScores.get(Collections.min(listeIndex)));
+                            minScore.setText(""+Tableau.listeScores.get(Collections.max(listeIndex)));
+                            System.out.println("La liste des scores est "+listeIndex);
+                            final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
+                            alertDialogBuilder.setMessage("Votre score est de : "+value+value2+value3+". Veuillez passer au joueur suivant.");
+                            AlertDialog alertDialog = alertDialogBuilder.create();
+                            alertDialog.show();
 
+                        }
                     }
 
                     @Override
@@ -366,20 +331,15 @@ public class partieActivity extends AppCompatActivity {
                     }
                 };
                 anim1.setAnimationListener(animationListener);
-
-                imageView1.startAnimation(anim1);
-                imageView2.startAnimation(anim1);
-                imageView3.startAnimation(anim1);
-
-
+                if(verouillage_1==false){imageView1.startAnimation(anim1);}
+                if(verouillage_2==false){imageView2.startAnimation(anim1);}
+                if(verouillage_3==false){imageView3.startAnimation(anim1);}
 
             }
-
         }
-
     };
 
-    public static int randomDiceValue() {
+    public int randomDiceValue() {
         return RANDOM.nextInt(6) + 1;
     }
 
@@ -389,7 +349,4 @@ public class partieActivity extends AppCompatActivity {
             onPause();
         }
     }
-
-
-
 }
