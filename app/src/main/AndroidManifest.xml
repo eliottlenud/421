@@ -14,11 +14,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".partieActivity"></activity>
+        <activity android:name=".partieActivity"
+            android:screenOrientation="locked"></activity>
         <activity android:name=".Shakeit"></activity>
-        <activity android:name=".menuRegles"></activity>
+        <activity android:name=".menuRegles"
+            android:screenOrientation="locked"></activity>
         <activity android:name=".MainActivity"
-                android:theme="@style/AppTheme">
+                android:theme="@style/AppTheme"
+            android:screenOrientation="locked">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
