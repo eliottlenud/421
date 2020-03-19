@@ -154,11 +154,19 @@ public class partieActivity extends AppCompatActivity {
             }
         });
 
+
 /*-----------------------------------------BOUTON FIN DU TOUR----------------------------------------------------*/
         //Bouton qui passe au joueur suivant
         finDuTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(nbclick==0){
+                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
+                    alertDialogBuilder.setMessage("Veuillez lancer les dés au moins une fois.");
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
+                else {
                 nbclick= 0;
                 moveit = true;
                 relancer.setVisibility(View.INVISIBLE);
@@ -182,7 +190,7 @@ public class partieActivity extends AppCompatActivity {
                 final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
                 alertDialogBuilder.setMessage("Votre score est de : "+value+value2+value3+". Veuillez passer au joueur suivant.");
                 AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
+                alertDialog.show();}
             }
 
         });
