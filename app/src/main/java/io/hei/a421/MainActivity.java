@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
                     addPlayerToTeam(v);
                 }
                 else {
-                    Log.d("coucou2","ca rentre la2");
                     final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                     alertDialogBuilder.setMessage("Vous devez rentrer un pseudo !");
                     alertDialogBuilder.setPositiveButton("Compris !", new DialogInterface.OnClickListener() {

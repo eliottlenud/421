@@ -1,13 +1,22 @@
 package io.hei.a421;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 public class menuRegles extends AppCompatActivity {
+
+
+    @Override
+    public void onBackPressed() {
+        Log.d("Test","MenuRegles - intent");
+        Intent intent = new Intent(menuRegles.this, menuRegles.class);
+        startActivity(intent);
+
+    }
 
     Button button1, button2, button3, button4, button5, button6;
 
@@ -28,7 +37,6 @@ public class menuRegles extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 setContentView(R.layout.button1);
-                Log.d("Test","Boutton 1");
                 changeLayout();
             }
         });
