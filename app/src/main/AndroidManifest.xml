@@ -17,6 +17,12 @@
         <activity android:name=".partieActivity"
             android:screenOrientation="locked"></activity>
         <activity android:name=".Shakeit"></activity>
+        <activity android:name=".regles.regle1"></activity>
+        <activity android:name=".regles.regle2"></activity>
+        <activity android:name=".regles.regle3"></activity>
+        <activity android:name=".regles.regle4"></activity>
+        <activity android:name=".regles.regle5"></activity>
+        <activity android:name=".regles.regle6"></activity>
         <activity android:name=".menuRegles"
             android:screenOrientation="locked"></activity>
         <activity android:name=".MainActivity"

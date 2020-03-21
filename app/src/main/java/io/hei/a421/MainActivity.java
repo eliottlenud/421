@@ -28,13 +28,19 @@ import io.hei.a421.Models.Joueur;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> partie;
+    ArrayList<String> partie = null;
     public ArrayList<Joueur> partieList = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
     ListView listView;
     EditText editText;
     Button buttonAdd, buttonJouer, buttonRegles, buttonReset;
     String TAG = "MainActivity";
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("coucou", "cest bon mon pote");
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -125,5 +131,11 @@ public class MainActivity extends AppCompatActivity {
         int i=0;
         partie.clear();
         arrayAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putStringArrayList("partie", partie);
+        super.onSaveInstanceState(outState);
     }
 }
