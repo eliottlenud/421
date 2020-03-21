@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         Log.d("coucou", "cest bon mon pote");
+        partieList.clear();
     }
 
     @Override
@@ -84,11 +85,13 @@ public class MainActivity extends AppCompatActivity {
         buttonJouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (partie.size()>=2){
                 createTeam();
+                if (partie.size()>=2){
+                    partie.clear();
                 Intent intent = new Intent(MainActivity.this, partieActivity.class);
                 intent.putParcelableArrayListExtra("partieList", partieList);
-                startActivity(intent);}
+                startActivity(intent);
+                }
                 else {
                     final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(MainActivity.this);
                     alertDialogBuilder.setMessage("Veuillez rentrez au moins 2 joueurs.");

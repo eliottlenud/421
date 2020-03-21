@@ -115,7 +115,8 @@ public class partieActivity extends AppCompatActivity {
                     imageView1.setBackgroundColor(Color.RED);
                     verouillage_1 =true;
                     a=1;
-                }else {
+                }
+                else {
                     imageView1.setBackgroundColor(Color.TRANSPARENT);
                     verouillage_1 =false;
                     a=0;
