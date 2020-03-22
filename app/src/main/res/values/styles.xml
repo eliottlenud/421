@@ -27,4 +27,9 @@
         <item name="android:gravity">center</item>
 
     </style>
+
+    <style name="AlertDialogTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:color">@color/black</item>
+    </style>
+        an
 </resources>

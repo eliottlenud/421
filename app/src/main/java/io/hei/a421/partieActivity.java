@@ -1,6 +1,7 @@
 package io.hei.a421;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -43,7 +44,7 @@ public class partieActivity extends AppCompatActivity {
     public boolean moveit = true;                               //Pour mettre en pause entre 2 lancers
     public int nbclick = 0;                                     //Gère le nombre de lancers par personne
     int a=0,b=0,c=0;                                            //Gère le verrouillage des dés (à ne pas relancer)
-    boolean verrouillage_1, verrouillage_2, verrouillage_3;
+    boolean verrouillage_1, verrouillage_2, verrouillage_3,verDef_1,verDef_2,verDef_3;
     int value, value2, value3, score;                                  //Les chiffres composant le score
     MediaPlayer sonDe;
     String TAG = "partieActivity";
@@ -247,6 +248,7 @@ public class partieActivity extends AppCompatActivity {
                         if (verrouillage_1 ==false){ value = randomDiceValue();}
                         if (verrouillage_2 ==false){ value2 = randomDiceValue();}
                         if (verrouillage_3 ==false){ value3 = randomDiceValue();}
+
                         int temp;
 
                         //Trie les dés dans l'ordre décroissant
@@ -394,12 +396,18 @@ public class partieActivity extends AppCompatActivity {
             nomBest.setText(""); //Affiche le pseudo du meilleur joueur
             nomPire.setText(""); //Affiche le pseudo du pire joueur
         } else {
-            final AlertDialog.Builder alertDialogBuilder2 = new AlertDialog.Builder(partieActivity.this);
+            final AlertDialog.Builder alertDialogBuilder2 = new AlertDialog.Builder(partieActivity.this,R.style.Theme_AppCompat_DayNight_Dialog_Alert);
+            alertDialogBuilder2.setTitle("Fin de partie");
             alertDialogBuilder2.setMessage("Partie finie !\n"+pireJoueur.getPseudo()+" a perdu !");
+            alertDialogBuilder2.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent intent = new Intent(partieActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+            });
             AlertDialog alertDialog2 = alertDialogBuilder2.create();
             alertDialog2.show();
-            Intent intent = new Intent(partieActivity.this, MainActivity.class);
-            startActivity(intent);
         }
     }
 }
