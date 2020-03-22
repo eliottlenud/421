@@ -104,14 +104,19 @@ public class partieActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (a==0 && nbclick!=0) {
-                    imageView1.setBackgroundColor(Color.RED);
+                    imageView1.setColorFilter(R.color.black);
                     verrouillage_1 =true;
                     a=1;
+                    if (verrouillage_1==true && verrouillage_2==true && verrouillage_3==true){
+                        relancer.setVisibility(View.INVISIBLE);
+                    }
                 }
                 else {
-                    imageView1.setBackgroundColor(Color.TRANSPARENT);
+                    imageView1.setColorFilter(Color.TRANSPARENT);
+                    if(nbclick!=0){relancer.setVisibility(View.VISIBLE);}
                     verrouillage_1 =false;
                     a=0;
+
                 }
             }
         });
@@ -121,12 +126,16 @@ public class partieActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (b==0  && nbclick!=0) {
-                    imageView2.setBackgroundColor(Color.RED);
+                    imageView2.setColorFilter(R.color.black);
                     verrouillage_2 =true;
                     b=1;
+                    if (verrouillage_1==true && verrouillage_2==true && verrouillage_3==true){
+                        relancer.setVisibility(View.INVISIBLE);
+                    }
                 }else {
-                    imageView2.setBackgroundColor(Color.TRANSPARENT);
+                    imageView2.setColorFilter(Color.TRANSPARENT);
                     verrouillage_2 =false;
+                    if(nbclick!=0){relancer.setVisibility(View.VISIBLE);}
                     b=0;
                 }
             }
@@ -137,12 +146,16 @@ public class partieActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (c==0 && nbclick!=0) {
-                    imageView3.setBackgroundColor(Color.RED);
+                    imageView3.setColorFilter(R.color.black);
                     verrouillage_3 =true;
                     c=1;
+                    if (verrouillage_1==true && verrouillage_2==true && verrouillage_3==true){
+                        relancer.setVisibility(View.INVISIBLE);
+                    }
                 }else {
-                    imageView3.setBackgroundColor(Color.TRANSPARENT);
+                    imageView3.setColorFilter(Color.TRANSPARENT);
                     verrouillage_3 =false;
+                    if(nbclick!=0){relancer.setVisibility(View.VISIBLE);}
                     c=0;
                 }
             }
@@ -167,6 +180,8 @@ public class partieActivity extends AppCompatActivity {
             }
 
         });
+
+
 
 
         /*-----------------------------------------BOUTON RELANCER----------------------------------------------------*/
@@ -265,9 +280,9 @@ public class partieActivity extends AppCompatActivity {
                         verrouillage_1 = false;
                         verrouillage_2 = false;
                         verrouillage_3 = false;
-                        imageView1.setBackgroundColor(Color.TRANSPARENT);
-                        imageView2.setBackgroundColor(Color.TRANSPARENT);
-                        imageView3.setBackgroundColor(Color.TRANSPARENT);
+                        imageView1.setColorFilter(Color.TRANSPARENT);
+                        imageView2.setColorFilter(Color.TRANSPARENT);
+                        imageView3.setColorFilter(Color.TRANSPARENT);
 
                         relancer.setVisibility(View.VISIBLE); //Affiche le bouton pour que le joueur puisse relancer
 
@@ -315,9 +330,9 @@ public class partieActivity extends AppCompatActivity {
         if (rangJoueur == partieList.size()){
             newTour();
         }else {
-            imageView1.setBackgroundColor(Color.TRANSPARENT);
-            imageView2.setBackgroundColor(Color.TRANSPARENT);
-            imageView3.setBackgroundColor(Color.TRANSPARENT);
+            imageView1.setColorFilter(Color.TRANSPARENT);
+            imageView2.setColorFilter(Color.TRANSPARENT);
+            imageView3.setColorFilter(Color.TRANSPARENT);
             verrouillage_1 = false;
             verrouillage_2 = false;
             verrouillage_3 = false;
@@ -366,9 +381,9 @@ public class partieActivity extends AppCompatActivity {
             tempList.clear();
             listeIndex.clear();
             rangJoueur = 0;
-            imageView1.setBackgroundColor(Color.TRANSPARENT);
-            imageView2.setBackgroundColor(Color.TRANSPARENT);
-            imageView3.setBackgroundColor(Color.TRANSPARENT);
+            imageView1.setColorFilter(Color.TRANSPARENT);
+            imageView2.setColorFilter(Color.TRANSPARENT);
+            imageView3.setColorFilter(Color.TRANSPARENT);
             verrouillage_1 = false;
             verrouillage_2 = false;
             verrouillage_3 = false;
