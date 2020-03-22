@@ -383,6 +383,8 @@ public class partieActivity extends AppCompatActivity {
             alertDialogBuilder2.setMessage("Partie finie !\n"+pireJoueur.getPseudo()+" a perdu !");
             AlertDialog alertDialog2 = alertDialogBuilder2.create();
             alertDialog2.show();
+            Intent intent = new Intent(partieActivity.this, MainActivity.class);
+            startActivity(intent);
         }
     }
 }
