@@ -57,6 +57,13 @@
                 android:gravity="center_vertical|center"
                 android:textSize="50dp"
                 android:textColor="#ffffff"></TextView>
+            <TextView
+                android:id="@+id/nameBest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:textSize="20dp"
+                android:textColor="#ffffff"></TextView>
 
         </LinearLayout>
 
@@ -78,6 +85,13 @@
                 android:text="655"
                 android:gravity="center_vertical|center"
                 android:textSize="50dp"
+                android:textColor="#ffffff"></TextView>
+            <TextView
+                android:id="@+id/nameWorst"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center"
+                android:textSize="20dp"
                 android:textColor="#ffffff"></TextView>
 
         </LinearLayout>
@@ -118,20 +132,8 @@
 
     </LinearLayout>
 
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_centerHorizontal="true">
-    <Button
-        android:id="@+id/lancer"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="450dp"
-        android:layout_marginRight="20dp"
-        android:layout_centerHorizontal="true"
-        android:text="Lancer"
-        android:background="@drawable/custom_button" />
+
+
     <Button
         android:id="@+id/relancer"
         android:layout_width="150dp"
@@ -140,7 +142,6 @@
         android:layout_centerHorizontal="true"
         android:text="Relancer"
         android:background="@drawable/custom_button" />
-</LinearLayout>
     <Button
         android:id="@+id/finDuTour"
         android:layout_width="150dp"
