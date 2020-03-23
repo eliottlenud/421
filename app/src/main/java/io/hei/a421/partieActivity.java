@@ -33,7 +33,7 @@ public class partieActivity extends AppCompatActivity {
     public static final Random RANDOM = new Random();
     public ImageView imageView1, imageView2, imageView3;        //Les 3 images des dés
     public TextView nomJoueurActuel, numberofjetons, topScore, minScore, nomBest, nomPire;  //Nom du joueur qui joue
-    public int rangJoueur;
+    public int rangJoueur, nbLancersAutorises = 0;
     public Button relancer;
     //Pour parcourir la liste des joueurs
     private SensorManager mSensorManager = null;                //Pour lancer les dés en secouant l'appareil
@@ -169,14 +169,24 @@ public class partieActivity extends AppCompatActivity {
         finDuTour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nbclick==0){
-                    final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
-                    alertDialogBuilder.setMessage("Veuillez lancer les dés au moins une fois.");
-                    AlertDialog alertDialog = alertDialogBuilder.create();
-                    alertDialog.show();
-                }
-                else {
-                    resetTour();
+                if (rangJoueur ==0) {
+                    if (nbLancersAutorises == 0) {
+                        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
+                        alertDialogBuilder.setMessage("Veuillez lancer les dés au moins une fois.");
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+                    } else {
+                        resetTour();
+                    }
+                } else {
+                    if (nbclick == 0) {
+                        final AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(partieActivity.this);
+                        alertDialogBuilder.setMessage("Veuillez lancer les dés au moins une fois.");
+                        AlertDialog alertDialog = alertDialogBuilder.create();
+                        alertDialog.show();
+                    } else {
+                        resetTour();
+                    }
                 }
             }
 
@@ -287,10 +297,16 @@ public class partieActivity extends AppCompatActivity {
                         imageView3.setColorFilter(Color.TRANSPARENT);
 
                         relancer.setVisibility(View.VISIBLE); //Affiche le bouton pour que le joueur puisse relancer
-
-                        nbclick ++; //Calcule le nombre de lancers du joueur
-                        if (nbclick==3){
-                            resetTour();
+                        if(rangJoueur==0) {
+                            nbLancersAutorises ++;
+                            if (nbLancersAutorises == 3) {
+                                resetTour();
+                            }
+                        } else {
+                            nbclick++; //Calcule le nombre de lancers du joueur
+                            if (nbclick == nbLancersAutorises) {
+                                resetTour();
+                            }
                         }
                     }
 
@@ -383,6 +399,7 @@ public class partieActivity extends AppCompatActivity {
             tempList.clear();
             listeIndex.clear();
             rangJoueur = 0;
+            nbLancersAutorises =0;
             imageView1.setColorFilter(Color.TRANSPARENT);
             imageView2.setColorFilter(Color.TRANSPARENT);
             imageView3.setColorFilter(Color.TRANSPARENT);
